@@ -8,7 +8,7 @@ const done = ref(false)
 const count = ref(0)
 const leaving = ref(false)
 
-const SESSION_KEY = 'atelie:intro-seen'
+const SESSION_KEY = 'carolinadill:intro-seen'
 
 onMounted(() => {
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -66,9 +66,9 @@ onBeforeUnmount(() => {
       />
 
       <span
-        class="relative font-display text-[clamp(1rem,2vw,1.5rem)] text-linen transition-opacity duration-300"
+        class="relative font-brand text-gold text-[clamp(1.15rem,2.2vw,1.65rem)] font-medium tracking-[0.02em] transition-opacity duration-300"
         :class="leaving ? 'opacity-0' : 'opacity-100'"
-      >Ateliê</span>
+      >Carolina Dill</span>
 
       <span
         class="relative font-display text-[clamp(3rem,12vw,10rem)] leading-none tabular-nums text-bone transition-opacity duration-300"

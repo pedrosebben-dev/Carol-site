@@ -2,7 +2,7 @@
 title: Clínica Lumen
 subtitle: Uma clínica odontológica que não parece uma clínica odontológica
 category: Comercial
-location: Curitiba, PR
+location: Canela, RS
 year: 2024
 area: 165 m²
 scope:

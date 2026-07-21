@@ -2,7 +2,7 @@
 title: Escritório Norte
 subtitle: Sede de uma agência com 38 pessoas e nenhuma sala fechada
 category: Corporativo
-location: Curitiba, PR
+location: Canela, RS
 year: 2023
 area: 420 m²
 scope:

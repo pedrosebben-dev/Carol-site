@@ -1,4 +1,4 @@
-# Ateliê Interiores — site
+# Carolina Dill Interiores — site
 
 Site institucional + portfólio para estúdio de design de interiores.
 Nuxt 4, Vue 3, TypeScript, Tailwind 4, Nuxt Content. Deploy na Vercel.
@@ -72,7 +72,7 @@ Crie `content/portfolio/nome-do-projeto.md`:
 title: Casa Aurora
 subtitle: Uma frase curta que aparece embaixo do título
 category: Residencial        # Residencial | Comercial | Corporativo | Reforma
-location: Curitiba, PR
+location: Canela, RS
 year: 2025
 area: 186 m²
 scope:

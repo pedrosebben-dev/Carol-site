@@ -2,7 +2,7 @@
 title: Apartamento Batel
 subtitle: 118 m² que parecem 150 depois de derrubar duas paredes
 category: Residencial
-location: Curitiba, PR
+location: Canela, RS
 year: 2025
 area: 118 m²
 scope:

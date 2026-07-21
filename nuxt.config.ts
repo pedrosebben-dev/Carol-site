@@ -69,6 +69,8 @@ export default defineNuxtConfig({
     families: [
       { name: 'Fraunces', provider: 'google', weights: [300, 400, 500, 600] },
       { name: 'Inter', provider: 'google', weights: [300, 400, 500, 600] },
+      // Serif de alto padrão usada só na assinatura da marca (logo do header/preloader).
+      { name: 'Cormorant Garamond', provider: 'google', weights: [400, 500, 600] },
     ],
   },
 

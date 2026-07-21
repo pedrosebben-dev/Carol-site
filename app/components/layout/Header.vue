@@ -58,7 +58,7 @@ function onNavClick(e: MouseEvent, to: string) {
           class="group flex items-baseline gap-2.5"
           :aria-label="`${site.legalName} — início`"
         >
-          <span class="font-display text-xl leading-none text-bone">{{ site.name }}</span>
+          <span class="font-brand text-gold text-2xl font-medium leading-none tracking-[0.02em]">{{ site.name }}</span>
           <span class="eyebrow hidden text-linen/45 transition-colors group-hover:text-brass sm:block">
             {{ site.tagline }}
           </span>

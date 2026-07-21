@@ -2,7 +2,7 @@
 title: Casa Aurora
 subtitle: Uma casa de esquina reorganizada em torno da luz da tarde
 category: Residencial
-location: Curitiba, PR
+location: Canela, RS
 year: 2025
 area: 186 m²
 scope:
