@@ -38,9 +38,9 @@ export const siteConfig = {
    * WhatsApp no formato internacional, apenas dígitos: 55 + DDD + número.
    * Ex.: (41) 99999-8888 -> '5541999998888'
    */
-  whatsapp: '5541999998888',
+  whatsapp: '5554991390665',
   whatsappDefaultMessage:
-    'Olá! Vim pelo site e gostaria de conversar sobre um projeto de interiores.',
+    'Olá, Carolina! Vim pelo site e gostaria de solicitar um orçamento para um projeto de interiores.',
 
   social: [
     { label: 'Instagram', href: 'https://instagram.com/carolinadill' },

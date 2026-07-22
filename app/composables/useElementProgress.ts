@@ -44,7 +44,7 @@ export function useElementProgress(target: Ref<HTMLElement | null | undefined>) 
     window.removeEventListener('resize', schedule)
   })
 
-  watch(scrollY, schedule)
+  watch(scrollY, measure)
 
   return progress
 }
@@ -82,7 +82,7 @@ export function useStickyProgress(target: Ref<HTMLElement | null | undefined>) {
     window.removeEventListener('resize', schedule)
   })
 
-  watch(scrollY, schedule)
+  watch(scrollY, measure)
 
   return { progress, active }
 }

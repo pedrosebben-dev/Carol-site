@@ -13,17 +13,17 @@ accent: '#7D8570'
 featured: true
 order: 3
 cover:
-  src: /media/projetos/apartamento-batel/capa.jpg
+  src: /media/projetos/apartamento-gramado/capa.jpg
   alt: Living integrado com cozinha aberta, tons neutros e plantas
 gallery:
-  - src: /media/projetos/apartamento-batel/01.jpg
+  - src: /media/projetos/apartamento-gramado/01.jpg
     alt: Estante de marcenaria com nichos assimétricos e TV embutida
     span: tall
-  - src: /media/projetos/apartamento-batel/02.jpg
+  - src: /media/projetos/apartamento-gramado/02.jpg
     alt: Cozinha em U com bancada em quartzo branco
-  - src: /media/projetos/apartamento-batel/03.jpg
+  - src: /media/projetos/apartamento-gramado/03.jpg
     alt: Home office integrado ao living com porta de correr
-  - src: /media/projetos/apartamento-batel/04.jpg
+  - src: /media/projetos/apartamento-gramado/04.jpg
     alt: Varanda gourmet com churrasqueira embutida e jardim vertical
     span: wide
 ---
