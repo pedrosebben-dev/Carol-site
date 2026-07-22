@@ -45,6 +45,21 @@ const root = ref<HTMLElement | null>(null)
 const videoEl = ref<HTMLVideoElement | null>(null)
 const loaded = ref(false)
 
+onMounted(() => {
+  // Corrida de hidratação: mídia em cache pode terminar de carregar antes de o
+  // listener montar, e aí `loadeddata`/`load` nunca dispara — a mídia ficaria
+  // presa em opacity-0 (invisível). Confere o estado real direto no DOM.
+  const v = videoEl.value
+  if (v && v.readyState >= 2) {
+    loaded.value = true
+    return
+  }
+  const img = root.value?.querySelector('img')
+  if (img?.complete && img.naturalWidth > 0) {
+    loaded.value = true
+  }
+})
+
 // Só toca o vídeo quando ele está de fato visível.
 const { stop } = useIntersectionObserver(
   root,
@@ -86,6 +101,7 @@ onBeforeUnmount(stop)
       disablepictureinpicture
       :preload="eager ? 'auto' : 'metadata'"
       @loadeddata="loaded = true"
+      @canplay="loaded = true"
     >
       <source v-if="media.srcWebm" :src="media.srcWebm" type="video/webm">
       <source :src="media.src" type="video/mp4">

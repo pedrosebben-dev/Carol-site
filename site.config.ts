@@ -16,9 +16,9 @@ export interface SocialLink {
 
 export const siteConfig = {
   /** Nome curto usado no logo e no <title> */
-  name: 'Ateliê',
+  name: 'Carolina Dill',
   /** Nome completo usado em textos e dados estruturados */
-  legalName: 'Ateliê Interiores',
+  legalName: 'Carolina Dill Interiores',
   /** Assinatura que aparece no header/footer */
   tagline: 'Design de Interiores',
   description:
@@ -26,12 +26,12 @@ export const siteConfig = {
     + 'identidade e conforto. Do conceito à execução, com acompanhamento completo de obra.',
 
   /** URL de produção — usada em canonical, OG e sitemap */
-  url: 'https://atelieinteriores.com.br',
+  url: 'https://carolinadill.com.br',
 
   /** Contato */
-  email: 'contato@atelieinteriores.com.br',
-  city: 'Curitiba',
-  state: 'PR',
+  email: 'contato@carolinadill.com.br',
+  city: 'Canela',
+  state: 'RS',
   country: 'BR',
 
   /**
@@ -43,9 +43,9 @@ export const siteConfig = {
     'Olá! Vim pelo site e gostaria de conversar sobre um projeto de interiores.',
 
   social: [
-    { label: 'Instagram', href: 'https://instagram.com/atelieinteriores' },
-    { label: 'Pinterest', href: 'https://pinterest.com/atelieinteriores' },
-    { label: 'Behance', href: 'https://behance.net/atelieinteriores' },
+    { label: 'Instagram', href: 'https://instagram.com/carolinadill' },
+    { label: 'Pinterest', href: 'https://pinterest.com/carolinadill' },
+    { label: 'Behance', href: 'https://behance.net/carolinadill' },
   ] satisfies SocialLink[],
 
   nav: [

@@ -1,4 +1,5 @@
 import tailwindcss from '@tailwindcss/vite'
+import { services } from './app/data/home'
 import { siteConfig } from './site.config'
 
 export default defineNuxtConfig({
@@ -69,6 +70,8 @@ export default defineNuxtConfig({
     families: [
       { name: 'Fraunces', provider: 'google', weights: [300, 400, 500, 600] },
       { name: 'Inter', provider: 'google', weights: [300, 400, 500, 600] },
+      // Serif de alto padrão usada só na assinatura da marca (logo do header/preloader).
+      { name: 'Cormorant Garamond', provider: 'google', weights: [400, 500, 600] },
     ],
   },
 
@@ -81,7 +84,13 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ['/', '/portfolio', '/projetos'],
+      routes: [
+        '/',
+        '/portfolio',
+        '/projetos',
+        // Uma página estática por serviço (todas servidas por servicos/[slug].vue).
+        ...services.map(s => `/servicos/${s.slug}`),
+      ],
     },
   },
 })

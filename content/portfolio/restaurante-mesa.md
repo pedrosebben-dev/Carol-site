@@ -2,7 +2,7 @@
 title: Restaurante Mesa
 subtitle: Cinquenta lugares em um salão que antes comportava trinta
 category: Comercial
-location: Curitiba, PR
+location: Canela, RS
 year: 2024
 area: 240 m²
 scope:

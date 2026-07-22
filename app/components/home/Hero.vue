@@ -55,7 +55,6 @@ const currentWord = computed(() => heroRotatingWords[wordIndex.value] ?? heroRot
         :media="{
           type: 'video',
           src: '/media/hero/hero.mp4',
-          srcWebm: '/media/hero/hero.webm',
           poster: '/media/hero/hero-poster.jpg',
           alt: 'Sala de estar com iluminação natural, madeira clara e tons terrosos',
         }"

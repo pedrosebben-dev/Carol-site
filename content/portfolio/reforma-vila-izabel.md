@@ -1,8 +1,8 @@
 ---
-title: Reforma Vila Izabel
+title: Reforma Bela Vista
 subtitle: Um apartamento de 1978 atualizado sem apagar o que ele tinha de bom
 category: Reforma
-location: Curitiba, PR
+location: Canela, RS
 year: 2023
 area: 95 m²
 scope:
