@@ -13,17 +13,17 @@ accent: '#B08968'
 featured: false
 order: 6
 cover:
-  src: /media/projetos/reforma-vila-izabel/capa.jpg
+  src: /media/projetos/reforma-bela-vista/capa.jpg
   alt: Sala com taco de madeira restaurado, móveis modernos e parede em tom terroso
 gallery:
-  - src: /media/projetos/reforma-vila-izabel/01.jpg
+  - src: /media/projetos/reforma-bela-vista/01.jpg
     alt: Detalhe do taco de peroba restaurado com acabamento fosco
-  - src: /media/projetos/reforma-vila-izabel/02.jpg
+  - src: /media/projetos/reforma-bela-vista/02.jpg
     alt: Cozinha com azulejo original preservado e marcenaria nova
     span: wide
-  - src: /media/projetos/reforma-vila-izabel/03.jpg
+  - src: /media/projetos/reforma-bela-vista/03.jpg
     alt: Banheiro com pastilha hidráulica e louças suspensas
-  - src: /media/projetos/reforma-vila-izabel/04.jpg
+  - src: /media/projetos/reforma-bela-vista/04.jpg
     alt: Quarto com armário embutido de piso a teto
     span: tall
 ---

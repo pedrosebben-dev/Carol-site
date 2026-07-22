@@ -43,7 +43,7 @@ const { whatsappLink } = useSite()
         </ul>
 
         <a
-          :href="whatsappLink(`Olá! Tenho interesse em ${item.title.toLowerCase()}.`)"
+          :href="whatsappLink(item.wa)"
           target="_blank"
           rel="noopener noreferrer"
           class="link-underline w-fit text-sm text-brass"

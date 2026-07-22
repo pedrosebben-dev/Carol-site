@@ -41,7 +41,7 @@ onBeforeUnmount(() => {
 })
 
 /** Altura do container: uma tela de folga + o quanto precisa andar. */
-const containerHeight = computed(() => `${100 + props.projects.length * 55}vh`)
+const containerHeight = computed(() => `${100 + props.projects.length * 42}vh`)
 
 const trackStyle = computed(() => ({
   transform: `translate3d(${-progress.value * distance.value}px, 0, 0)`,

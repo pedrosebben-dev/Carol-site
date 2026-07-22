@@ -53,8 +53,8 @@ useSeoMeta({
         <p v-reveal class="reveal eyebrow text-brass">
           Portfólio
         </p>
-        <h1 class="text-display max-w-[14ch]">
-          <span class="line-mask is-visible"><span :style="{ '--reveal-delay': '120ms' }">Projetos entregues.</span></span>
+        <h1 class="text-display max-w-[14ch] leading-[1.12]">
+          <span class="line-mask is-visible pb-[0.12em]"><span :style="{ '--reveal-delay': '120ms' }">Projetos entregues.</span></span>
         </h1>
 
         <div class="flex flex-wrap items-center justify-between gap-6 border-b border-line/60 pb-6">

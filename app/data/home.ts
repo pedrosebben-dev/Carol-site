@@ -18,6 +18,7 @@ export const audience = [
       'Apartamentos e casas projetados a partir da rotina de quem vive ali. '
       + 'Layout, marcenaria, iluminação e acabamentos pensados juntos, não em etapas soltas.',
     tags: ['Planta e layout', 'Marcenaria', 'Iluminação'],
+    wa: 'Olá, Carolina! Tenho um projeto residencial em mente (apartamento ou casa) e gostaria de conversar sobre como transformar o espaço.',
   },
   {
     index: '02',
@@ -26,6 +27,7 @@ export const audience = [
       'Lojas, clínicas e restaurantes onde o espaço trabalha a favor da marca — '
       + 'fluxo de circulação, vitrine e permanência calculados para vender mais.',
     tags: ['Identidade espacial', 'Fluxo', 'Vitrine'],
+    wa: 'Olá, Carolina! Tenho um espaço comercial (loja, clínica ou restaurante) e quero um projeto que trabalhe a favor da marca. Podemos conversar?',
   },
   {
     index: '03',
@@ -34,6 +36,7 @@ export const audience = [
       'Para quem já tem o imóvel e precisa de direção. Em poucas sessões, '
       + 'saímos com paleta, plano de compras e prioridades definidas.',
     tags: ['Paleta', 'Plano de compras', 'Curadoria'],
+    wa: 'Olá, Carolina! Já tenho o imóvel e preciso de direção — gostaria de saber mais sobre a consultoria.',
   },
 ] as const
 
