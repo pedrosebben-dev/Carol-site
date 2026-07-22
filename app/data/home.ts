@@ -37,36 +37,110 @@ export const audience = [
   },
 ] as const
 
+/**
+ * Cada serviço vira uma página em /servicos/[slug].
+ * `intro` e `includes` alimentam essa página; `title`/`description`/`media`
+ * seguem alimentando a lista da home.
+ */
 export const services = [
   {
+    slug: 'projeto-completo',
     title: 'Projeto de interiores completo',
     description: 'Do briefing ao dia da mudança, com detalhamento executivo de tudo.',
     media: '/media/servicos/projeto-completo.jpg',
+    intro:
+      'O escopo mais completo do estúdio: cada ambiente é pensado a partir da sua rotina '
+      + 'e entregue detalhado, do primeiro moodboard ao dia em que você recebe a chave. '
+      + 'Nada fica para o improviso da obra.',
+    includes: [
+      'Levantamento do imóvel e briefing de rotina',
+      'Estudo de layout com duas propostas de planta',
+      'Projeto executivo: plantas, cortes e elevações',
+      'Detalhamento de marcenaria e caderno de acabamentos',
+      'Projeto luminotécnico e pontos elétricos',
+      'Render 3D de cada ambiente para aprovação',
+    ],
   },
   {
+    slug: 'marcenaria',
     title: 'Projeto de marcenaria',
     description: 'Desenho técnico de cada peça sob medida, pronto para o marceneiro executar.',
     media: '/media/servicos/marcenaria.jpg',
+    intro:
+      'Cada peça sob medida desenhada com precisão de milímetro — do painel da TV à despensa. '
+      + 'O marceneiro recebe um projeto que não deixa dúvida, e você recebe móveis que encaixam '
+      + 'no espaço e no uso.',
+    includes: [
+      'Desenho técnico de todas as peças (vistas e cortes)',
+      'Especificação de materiais, ferragens e acabamentos',
+      'Detalhes de iluminação embutida e tomadas',
+      'Render 3D das peças para aprovação',
+      'Memorial para cotação com qualquer marceneiro',
+    ],
   },
   {
+    slug: 'luminotecnico',
     title: 'Projeto luminotécnico',
     description: 'Camadas de luz, temperatura de cor e cenas — o que muda um ambiente à noite.',
     media: '/media/servicos/iluminacao.jpg',
+    intro:
+      'Luz é o que transforma um ambiente à noite. Trabalhamos em camadas — geral, tarefa e '
+      + 'destaque — com temperatura de cor e cenas pensadas para cada momento do dia.',
+    includes: [
+      'Planta de forro com pontos de luz e circuitos',
+      'Especificação de luminárias e temperatura de cor',
+      'Cenas de iluminação (jantar, receber, relaxar)',
+      'Cálculo de fluxo luminoso por ambiente',
+      'Detalhamento de sancas, perfis e embutidos',
+    ],
   },
   {
+    slug: 'render-3d',
     title: 'Render 3D fotorrealista',
     description: 'Você aprova vendo o ambiente pronto, antes de comprar o primeiro material.',
     media: '/media/servicos/render-3d.jpg',
+    intro:
+      'Você aprova o ambiente vendo ele pronto — antes de comprar o primeiro material. '
+      + 'Imagens realistas que mostram luz, textura e proporção exatamente como vão ficar.',
+    includes: [
+      'Modelagem 3D fiel ao projeto executivo',
+      'Imagens em alta resolução de cada ambiente',
+      'Estudo de luz natural e artificial',
+      'Ângulos-chave para cada espaço',
+      'Ajustes de acabamento e mobiliário até aprovar',
+    ],
   },
   {
+    slug: 'tour-360',
     title: 'Tour virtual 360º',
     description: 'Caminhe pelo projeto no navegador ou no óculos VR antes da obra começar.',
     media: '/media/servicos/tour-360.jpg',
+    intro:
+      'Caminhe pelo seu projeto antes da obra começar — no navegador, no celular ou no óculos '
+      + 'de VR. A forma mais imersiva de sentir a escala e o percurso dos ambientes.',
+    includes: [
+      'Cenas 360º navegáveis de cada ambiente',
+      'Link para abrir no navegador ou celular',
+      'Compatível com óculos de realidade virtual',
+      'Transições suaves entre ambientes',
+      'Ideal para aprovar o layout à distância',
+    ],
   },
   {
+    slug: 'acompanhamento-de-obra',
     title: 'Acompanhamento de obra',
     description: 'Visitas periódicas, gestão de fornecedores e conferência de cada entrega.',
     media: '/media/servicos/obra.jpg',
+    intro:
+      'O projeto só termina quando o ambiente está montado. Visitas periódicas, gestão de '
+      + 'fornecedores e conferência de cada entrega para que a obra saia fiel ao que foi aprovado.',
+    includes: [
+      'Visitas técnicas programadas ao canteiro',
+      'Orçamento e curadoria de fornecedores',
+      'Conferência de medidas e acabamentos',
+      'Compatibilização entre as equipes',
+      'Acompanhamento até a entrega final',
+    ],
   },
 ] as const
 
@@ -114,21 +188,21 @@ export const testimonials = [
       'Entreguei um apartamento vazio e recebi um lugar que parece que sempre foi meu. '
       + 'O nível de detalhe da marcenaria impressionou até o marceneiro.',
     author: 'Marina Costa',
-    role: 'Apartamento 118m² — Batel',
+    role: 'Apartamento 118m² — Gramado',
   },
   {
     quote:
       'A clínica ficou pronta em 4 meses e o número de pacientes que comentam do espaço '
       + 'na primeira consulta é absurdo. Virou parte do atendimento.',
     author: 'Dr. Rafael Menezes',
-    role: 'Clínica odontológica — Água Verde',
+    role: 'Clínica odontológica — Canela',
   },
   {
     quote:
       'O que mais valeu foi o acompanhamento de obra. Não tive que decidir nada sozinha '
       + 'no susto, e o orçamento fechou dentro do previsto.',
     author: 'Juliana Prado',
-    role: 'Casa 240m² — Santa Felicidade',
+    role: 'Casa 240m² — Nova Petrópolis',
   },
 ] as const
 

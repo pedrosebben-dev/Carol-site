@@ -16,7 +16,6 @@ order: 1
 cover:
   type: video
   src: /media/projetos/casa-aurora/capa.mp4
-  srcWebm: /media/projetos/casa-aurora/capa.webm
   poster: /media/projetos/casa-aurora/capa.jpg
   alt: Sala de estar integrada com pé-direito duplo e luz natural entrando pela lateral
 gallery:

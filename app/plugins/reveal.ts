@@ -1,3 +1,5 @@
+import { watch } from 'vue'
+
 /**
  * Diretiva `v-reveal` — adiciona `.is-visible` quando o elemento entra
  * na viewport. As transições em si moram no CSS (.reveal / .reveal-clip /
@@ -7,6 +9,12 @@
  * diretiva durante o SSR para chamar `getSSRProps`, e se ela só existir
  * no cliente o render no servidor quebra.
  * O trabalho de fato acontece só em `mounted`, que nunca roda no servidor.
+ *
+ * Robustez: além do IntersectionObserver (que dirige a animação), há uma
+ * rede de segurança lendo o scroll compartilhado (Lenis). Se o IO não
+ * disparar por qualquer motivo — navegador, scroll programático, aba em
+ * background — o conteúdo AINDA revela ao entrar na viewport, em vez de
+ * ficar preso invisível (o que deixaria um bloco preto vazio na página).
  *
  * Uso:
  *   <div v-reveal class="reveal">…</div>
@@ -24,7 +32,7 @@ interface RevealOptions {
 }
 
 export default defineNuxtPlugin((nuxtApp) => {
-  const observers = new WeakMap<HTMLElement, IntersectionObserver>()
+  const cleanups = new WeakMap<HTMLElement, () => void>()
 
   nuxtApp.vueApp.directive<HTMLElement, RevealOptions | undefined>('reveal', {
     // Nada a injetar no HTML do servidor — o estado inicial já vem do CSS.
@@ -46,12 +54,16 @@ export default defineNuxtPlugin((nuxtApp) => {
         return
       }
 
+      let done = false
+      const reveal = () => el.classList.add('is-visible')
+
+      // Primário: IntersectionObserver dispara a entrada.
       const observer = new IntersectionObserver(
         (entries) => {
           for (const entry of entries) {
             if (entry.isIntersecting) {
-              el.classList.add('is-visible')
-              if (once) observer.unobserve(el)
+              reveal()
+              if (once) cleanup()
             }
             else if (!once) {
               el.classList.remove('is-visible')
@@ -60,14 +72,36 @@ export default defineNuxtPlugin((nuxtApp) => {
         },
         { threshold: amount, rootMargin: '0px 0px -8% 0px' },
       )
-
       observer.observe(el)
-      observers.set(el, observer)
+
+      // Rede de segurança: revela por checagem de retângulo atrelada ao
+      // scroll compartilhado. Lê o MESMO scrollY que o resto do site (sem
+      // registrar listener próprio) e garante que nada fique invisível.
+      const { scrollY } = useScrollState()
+      const check = () => {
+        const r = el.getBoundingClientRect()
+        const vh = window.innerHeight || document.documentElement.clientHeight
+        if (r.top < vh * 0.9 && r.bottom > vh * 0.02) {
+          reveal()
+          if (once) cleanup()
+        }
+      }
+      const stopWatch = watch(scrollY, check)
+      requestAnimationFrame(check)
+
+      function cleanup() {
+        if (done) return
+        done = true
+        observer.disconnect()
+        stopWatch()
+      }
+
+      cleanups.set(el, cleanup)
     },
 
     unmounted(el) {
-      observers.get(el)?.disconnect()
-      observers.delete(el)
+      cleanups.get(el)?.()
+      cleanups.delete(el)
     },
   })
 })

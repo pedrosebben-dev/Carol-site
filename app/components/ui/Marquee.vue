@@ -18,7 +18,9 @@ const { velocity } = useScrollState()
 
 // Velocidade do Lenis chega em px/frame; normaliza para um fator suave.
 const skew = computed(() => Math.max(-8, Math.min(8, velocity.value * 0.25)))
-const boost = computed(() => 1 + Math.min(3, Math.abs(velocity.value) * 0.03))
+// "Puxão" do scroll bem mais contido: acelera no máximo ~2× (antes 4×) e com
+// rampa mais suave, pra dar pra ler o texto enquanto rola.
+const boost = computed(() => 1 + Math.min(1, Math.abs(velocity.value) * 0.015))
 
 const items = computed(() => Array.from({ length: 8 }, () => props.text))
 </script>

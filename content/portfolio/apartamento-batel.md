@@ -1,5 +1,5 @@
 ---
-title: Apartamento Batel
+title: Apartamento Gramado
 subtitle: 118 m² que parecem 150 depois de derrubar duas paredes
 category: Residencial
 location: Canela, RS

@@ -1,4 +1,5 @@
 import tailwindcss from '@tailwindcss/vite'
+import { services } from './app/data/home'
 import { siteConfig } from './site.config'
 
 export default defineNuxtConfig({
@@ -83,7 +84,13 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ['/', '/portfolio', '/projetos'],
+      routes: [
+        '/',
+        '/portfolio',
+        '/projetos',
+        // Uma página estática por serviço (todas servidas por servicos/[slug].vue).
+        ...services.map(s => `/servicos/${s.slug}`),
+      ],
     },
   },
 })

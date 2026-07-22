@@ -1,5 +1,5 @@
 ---
-title: Reforma Vila Izabel
+title: Reforma Bela Vista
 subtitle: Um apartamento de 1978 atualizado sem apagar o que ele tinha de bom
 category: Reforma
 location: Canela, RS

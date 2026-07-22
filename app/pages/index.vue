@@ -15,7 +15,7 @@ useSeoMeta({
     <HomeHero />
     <HomeAudience />
 
-    <UiMarquee text="Residencial · Comercial · Marcenaria · Iluminação · Obra" :speed="30" />
+    <UiMarquee text="Residencial · Comercial · Marcenaria · Iluminação · Obra" :speed="46" />
 
     <HomeServices />
     <HomeStats />

@@ -60,7 +60,8 @@ onBeforeUnmount(() => cancelAnimationFrame(raf))
 
       <ul class="mt-16 border-t border-line/60">
         <li v-for="(service, i) in services" :key="service.title">
-          <div
+          <NuxtLink
+            :to="`/servicos/${service.slug}`"
             v-reveal="{ delay: i * 60 }"
             class="reveal group relative flex cursor-pointer items-center justify-between gap-8 border-b border-line/60 py-8 transition-colors duration-500 lg:py-10"
             @pointerenter="active = i"
@@ -92,7 +93,7 @@ onBeforeUnmount(() => cancelAnimationFrame(raf))
             >
               <path d="M4 16 16 4M7 4h9v9" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
-          </div>
+          </NuxtLink>
         </li>
       </ul>
     </div>
