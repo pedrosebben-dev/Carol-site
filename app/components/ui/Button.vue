@@ -9,10 +9,13 @@ const props = withDefaults(defineProps<{
   to?: string
   href?: string
   variant?: 'solid' | 'outline' | 'ghost'
+  /** Acento no hover: dourado (padrão) ou verde do WhatsApp. */
+  accent?: 'brass' | 'whatsapp'
   /** Intensidade da atração magnética; 0 desliga. */
   magnet?: number
 }>(), {
   variant: 'solid',
+  accent: 'brass',
   magnet: 0.35,
 })
 
@@ -38,13 +41,18 @@ const tag = computed(() => (props.href ? 'a' : props.to ? resolveComponent('Nuxt
 
 const classes = computed(() => {
   const base = 'group relative inline-flex items-center gap-3 overflow-hidden rounded-full px-7 py-4 text-sm font-medium tracking-wide transition-colors duration-500'
+  const wa = props.accent === 'whatsapp'
   switch (props.variant) {
     case 'outline':
-      return `${base} border border-linen/30 text-bone hover:border-brass hover:text-brass`
+      return wa
+        ? `${base} border border-linen/30 text-bone hover:border-whatsapp hover:bg-whatsapp hover:text-bone`
+        : `${base} border border-linen/30 text-bone hover:border-brass hover:text-brass`
     case 'ghost':
-      return `${base} px-0 text-bone hover:text-brass`
+      return `${base} px-0 text-bone ${wa ? 'hover:text-whatsapp' : 'hover:text-brass'}`
     default:
-      return `${base} bg-bone text-void hover:bg-brass`
+      return wa
+        ? `${base} bg-bone text-void hover:bg-whatsapp hover:text-bone`
+        : `${base} bg-bone text-void hover:bg-brass`
   }
 })
 </script>

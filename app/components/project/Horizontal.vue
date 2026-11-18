@@ -95,7 +95,7 @@ const trackStyle = computed(() => ({
               {{ project.title }}
             </span>
             <span class="text-sm text-linen/45">
-              {{ project.category }} · {{ project.location }}
+              {{ [project.category, project.location].filter(Boolean).join(' · ') }}
             </span>
           </div>
         </NuxtLink>

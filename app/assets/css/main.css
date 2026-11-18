@@ -25,6 +25,8 @@
   --color-brass: #c8a15b;
   --color-clay: #a9603c;
   --color-sage: #7d8570;
+  /* Verde do WhatsApp — símbolo do FAB e hover dos botões de WhatsApp */
+  --color-whatsapp: #0b6e33;
 
   /* Tipografia */
   --font-display: 'Fraunces', ui-serif, Georgia, serif;

@@ -42,6 +42,10 @@ const heroStyle = computed(() => ({
 
 const slug = computed(() => projectSlug(item.value))
 
+/** "Canela, RS · 2025" do próximo projeto — só com o que ele informa. */
+const nextMeta = computed(() =>
+  [next.value?.location, next.value?.year].filter(Boolean).join(' · '))
+
 /** Classes de grid por span — mantém a galeria irregular sem CSS solto. */
 function spanClass(span?: string) {
   switch (span) {
@@ -63,7 +67,10 @@ function spanRatio(span?: string) {
 
 useSeoMeta({
   title: () => item.value.title,
-  description: () => `${item.value.subtitle} — projeto de interiores em ${item.value.location}, ${item.value.area}, entregue em ${item.value.year}.`,
+  description: () => {
+    const { subtitle, location, area } = item.value
+    return `${subtitle} — projeto de interiores${location ? ` em ${location}` : ''}${area ? `, ${area}` : ''}.`
+  },
   ogTitle: () => `${item.value.title} — ${site.legalName}`,
   ogDescription: () => item.value.subtitle,
   ogImage: () => item.value.cover.poster ?? item.value.cover.src,
@@ -105,13 +112,13 @@ useSeoMeta({
     <!-- Ficha técnica -->
     <section class="border-y border-line/60 bg-ink">
       <dl class="container-x grid grid-cols-2 gap-x-8 gap-y-8 py-10 sm:grid-cols-4">
-        <div class="flex flex-col gap-2">
+        <div v-if="item.location" class="flex flex-col gap-2">
           <dt class="eyebrow text-brass">
             Local
           </dt>
           <dd>{{ item.location }}</dd>
         </div>
-        <div class="flex flex-col gap-2">
+        <div v-if="item.year" class="flex flex-col gap-2">
           <dt class="eyebrow text-brass">
             Ano
           </dt>
@@ -119,7 +126,7 @@ useSeoMeta({
             {{ item.year }}
           </dd>
         </div>
-        <div class="flex flex-col gap-2">
+        <div v-if="item.area" class="flex flex-col gap-2">
           <dt class="eyebrow text-brass">
             Área
           </dt>
@@ -192,7 +199,7 @@ useSeoMeta({
       <div class="container-x absolute inset-0 flex flex-col items-center justify-center gap-4 text-center">
         <span class="eyebrow text-brass">Próximo projeto</span>
         <span class="text-display font-display max-w-[14ch]">{{ next.title }}</span>
-        <span class="text-sm text-linen/60">{{ next.location }} · {{ next.year }}</span>
+        <span v-if="nextMeta" class="text-sm text-linen/60">{{ nextMeta }}</span>
       </div>
     </NuxtLink>
   </article>

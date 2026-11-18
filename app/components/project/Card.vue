@@ -31,6 +31,9 @@ const mediaStyle = computed(() => ({
 }))
 
 const slug = computed(() => projectSlug(props.project))
+
+/** "Canela, RS · 2025" — só com o que o projeto realmente informa. */
+const meta = computed(() => [props.project.location, props.project.year].filter(Boolean).join(' · '))
 </script>
 
 <template>
@@ -67,8 +70,8 @@ const slug = computed(() => projectSlug(props.project))
         </p>
       </div>
 
-      <span class="shrink-0 pt-1 text-xs text-stone tabular-nums">
-        {{ project.location }} · {{ project.year }}
+      <span v-if="meta" class="shrink-0 pt-1 text-xs text-stone tabular-nums">
+        {{ meta }}
       </span>
     </div>
   </NuxtLink>

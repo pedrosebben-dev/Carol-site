@@ -55,8 +55,8 @@ const currentWord = computed(() => heroRotatingWords[wordIndex.value] ?? heroRot
         :media="{
           type: 'video',
           src: '/media/hero/hero.mp4',
-          poster: '/media/hero/hero-poster.jpg',
-          alt: 'Sala de estar com iluminação natural, madeira clara e tons terrosos',
+          poster: '/media/hero/hero-poster.webp',
+          alt: 'Evolução da obra de uma casa na Serra Gaúcha, do terreno vazio à casa pronta',
         }"
         eager
         class="h-full w-full"
@@ -103,7 +103,7 @@ const currentWord = computed(() => heroRotatingWords[wordIndex.value] ?? heroRot
           <UiButton to="/projetos">
             Ver projetos
           </UiButton>
-          <UiButton :href="whatsappLink()" variant="outline">
+          <UiButton :href="whatsappLink()" variant="outline" accent="whatsapp">
             Falar no WhatsApp
           </UiButton>
         </div>

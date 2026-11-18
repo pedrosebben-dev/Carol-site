@@ -13,9 +13,9 @@ export interface Project {
   title: string
   subtitle: string
   category: string
-  location: string
-  year: number
-  area: string
+  location?: string
+  year?: number
+  area?: string
   scope: string[]
   cover: ProjectMedia
   accent: string

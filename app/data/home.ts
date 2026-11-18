@@ -50,7 +50,7 @@ export const services = [
     slug: 'projeto-completo',
     title: 'Projeto de interiores completo',
     description: 'Do briefing ao dia da mudança, com detalhamento executivo de tudo.',
-    media: '/media/servicos/projeto-completo.jpg',
+    media: '/media/servicos/projeto-completo.webp',
     intro:
       'O escopo mais completo do estúdio: cada ambiente é pensado a partir da sua rotina '
       + 'e entregue detalhado, do primeiro moodboard ao dia em que você recebe a chave. '
@@ -68,7 +68,7 @@ export const services = [
     slug: 'marcenaria',
     title: 'Projeto de marcenaria',
     description: 'Desenho técnico de cada peça sob medida, pronto para o marceneiro executar.',
-    media: '/media/servicos/marcenaria.jpg',
+    media: '/media/servicos/marcenaria.webp',
     intro:
       'Cada peça sob medida desenhada com precisão de milímetro — do painel da TV à despensa. '
       + 'O marceneiro recebe um projeto que não deixa dúvida, e você recebe móveis que encaixam '
@@ -85,7 +85,7 @@ export const services = [
     slug: 'luminotecnico',
     title: 'Projeto luminotécnico',
     description: 'Camadas de luz, temperatura de cor e cenas — o que muda um ambiente à noite.',
-    media: '/media/servicos/iluminacao.jpg',
+    media: '/media/servicos/iluminacao.webp',
     intro:
       'Luz é o que transforma um ambiente à noite. Trabalhamos em camadas — geral, tarefa e '
       + 'destaque — com temperatura de cor e cenas pensadas para cada momento do dia.',
@@ -101,7 +101,7 @@ export const services = [
     slug: 'render-3d',
     title: 'Render 3D fotorrealista',
     description: 'Você aprova vendo o ambiente pronto, antes de comprar o primeiro material.',
-    media: '/media/servicos/render-3d.jpg',
+    media: '/media/servicos/render-3d.webp',
     intro:
       'Você aprova o ambiente vendo ele pronto — antes de comprar o primeiro material. '
       + 'Imagens realistas que mostram luz, textura e proporção exatamente como vão ficar.',
@@ -117,7 +117,7 @@ export const services = [
     slug: 'tour-360',
     title: 'Tour virtual 360º',
     description: 'Caminhe pelo projeto no navegador ou no óculos VR antes da obra começar.',
-    media: '/media/servicos/tour-360.jpg',
+    media: '/media/servicos/tour-360.webp',
     intro:
       'Caminhe pelo seu projeto antes da obra começar — no navegador, no celular ou no óculos '
       + 'de VR. A forma mais imersiva de sentir a escala e o percurso dos ambientes.',
@@ -133,7 +133,7 @@ export const services = [
     slug: 'acompanhamento-de-obra',
     title: 'Acompanhamento de obra',
     description: 'Visitas periódicas, gestão de fornecedores e conferência de cada entrega.',
-    media: '/media/servicos/obra.jpg',
+    media: '/media/servicos/obra.webp',
     intro:
       'O projeto só termina quando o ambiente está montado. Visitas periódicas, gestão de '
       + 'fornecedores e conferência de cada entrega para que a obra saia fiel ao que foi aprovado.',

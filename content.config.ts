@@ -28,9 +28,11 @@ export default defineContentConfig({
         title: z.string(),
         subtitle: z.string(),
         category: z.enum(projectCategories),
-        location: z.string(),
-        year: z.number(),
-        area: z.string(),
+        // Opcionais: nem todo projeto tem cidade, metragem ou ano confirmados.
+        // Quando faltam, a interface simplesmente não mostra o campo.
+        location: z.string().optional(),
+        year: z.number().optional(),
+        area: z.string().optional(),
         scope: z.array(z.string()).default([]),
         /** Capa usada no grid, na home e na página imersiva. Pode ser vídeo. */
         cover: mediaSchema,

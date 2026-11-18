@@ -76,7 +76,7 @@ function onNavClick(e: MouseEvent, to: string) {
             {{ item.label }}
           </NuxtLink>
 
-          <UiButton :href="whatsappLink()" variant="outline" :magnet="0.25">
+          <UiButton :href="whatsappLink()" variant="outline" accent="whatsapp" :magnet="0.25">
             Falar no WhatsApp
           </UiButton>
         </nav>
@@ -134,7 +134,7 @@ function onNavClick(e: MouseEvent, to: string) {
         </nav>
 
         <div class="flex flex-col gap-6">
-          <UiButton :href="whatsappLink()" variant="solid" :magnet="0">
+          <UiButton :href="whatsappLink()" variant="solid" accent="whatsapp" :magnet="0">
             Falar no WhatsApp
           </UiButton>
           <div class="flex gap-5">

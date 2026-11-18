@@ -20,6 +20,11 @@ npm run preview    # serve o build local
 npm run typecheck  # checagem de tipos (não roda no dev, de propósito)
 ```
 
+> **Não rode `typecheck` nem `build` na mesma pasta com o `npm run dev` ligado.**
+> Os dois escrevem em `.nuxt/` e o servidor de dev passa a responder 500
+> (`Cannot find module .nuxt/dev/index.mjs`) — a página fica toda preta. Se
+> acontecer, pare o dev (Ctrl+C) e rode `npm run dev` de novo.
+
 **Node 22.5+** — o Nuxt Content está configurado para usar o SQLite embutido
 do Node (`node:sqlite`) em vez do `better-sqlite3`. Isso elimina compilação
 nativa no `npm install` (instala em segundos, e a Vercel não precisa de
@@ -69,35 +74,34 @@ Crie `content/portfolio/nome-do-projeto.md`:
 
 ```markdown
 ---
-title: Casa Aurora
+title: Casa Quinta da Serra
 subtitle: Uma frase curta que aparece embaixo do título
 category: Residencial        # Residencial | Comercial | Corporativo | Reforma
-location: Canela, RS
-year: 2025
-area: 186 m²
+location: Gramado, RS        # opcional
+year: 2025                   # opcional
+area: aprox. 600 m²          # opcional
 scope:
-  - Projeto completo
-  - Marcenaria
-accent: '#C8A15B'            # cor do brilho da cena imersiva
+  - Projeto de interiores
+  - Render 3D
+accent: '#B5603A'            # cor do brilho da cena imersiva
 featured: true               # aparece em "Projetos" na home
 order: 1                     # ordem em todas as listagens
 cover:
-  src: /media/projetos/casa-aurora/capa.jpg
+  src: /media/projetos/casa-quinta-da-serra/capa.webp
   alt: Descrição da imagem para leitor de tela
 gallery:
-  - src: /media/projetos/casa-aurora/01.jpg
-    alt: Estar com sofá de linho
+  - src: /media/projetos/casa-quinta-da-serra/01.webp
+    alt: Sala de estar com lareira em tijolinho
     span: wide               # normal | wide | tall | full
 ---
-
-## Título de seção
 
 Texto em markdown. Vira a parte escrita da página do projeto.
 ```
 
 O schema é validado (`content.config.ts`) — se faltar um campo obrigatório
 ou a categoria estiver errada, o erro aparece no terminal ao salvar, não em
-produção.
+produção. `location`, `year` e `area` são opcionais: quando faltam, o campo
+simplesmente não aparece no site.
 
 Para criar uma categoria nova, adicione em `shared/categories.ts`. Ela fica
 válida no markdown e aparece no filtro do portfólio na mesma hora. (Esse
@@ -112,10 +116,10 @@ Qualquer `cover` ou item de `gallery` aceita vídeo:
 ```yaml
 cover:
   type: video
-  src: /media/projetos/casa-aurora/capa.mp4
-  srcWebm: /media/projetos/casa-aurora/capa.webm   # opcional, menor
-  poster: /media/projetos/casa-aurora/capa.jpg     # frame de carregamento
-  alt: Panorâmica da sala de estar
+  src: /media/projetos/casa-quinta-da-serra/capa.mp4
+  srcWebm: /media/projetos/casa-quinta-da-serra/capa.webm   # opcional, menor
+  poster: /media/projetos/casa-quinta-da-serra/capa.webp    # frame de carregamento
+  alt: Evolução da obra, do terreno vazio à casa pronta
 ```
 
 O player já vem resolvido: autoplay mudo, loop, `playsinline`, e — o que
@@ -126,11 +130,16 @@ Recomendações para os vídeos da cliente:
 
 | item | valor |
 |---|---|
-| duração | 5–12 s em loop |
+| duração | 5–25 s em loop |
 | resolução | 1920×1080 (não precisa mais) |
 | áudio | remover — o navegador bloqueia autoplay com som |
 | formato | `.mp4` (H.264) + `.webm` (VP9) opcional |
-| peso | até ~3 MB por vídeo |
+| peso | 3 a 6 MB por vídeo (é o que os vídeos atuais têm) |
+
+Os vídeos atuais são timelapses de obra (terreno → casa pronta). Os arquivos
+originais da Carol têm 4K, áudio e, no final, cenas internas com tarja preta
+embutida; por isso foram cortados no trecho externo, reduzidos para ~1920 px
+e recomprimidos sem áudio.
 
 Comando de conversão:
 
@@ -141,18 +150,33 @@ ffmpeg -i original.mov -vf scale=1920:-2 -an \
 
 ---
 
-## Trocando as mídias placeholder
+## Mídias do site
 
-`public/media/` está preenchido com imagens e vídeos gerados
-(`scripts/gerar-placeholders.py`) só para o site rodar bonito antes do
-material real.
+Tudo em `public/media/` é material real da Carol (renders, fotos e vídeos do
+Drive dela), em **webp** para imagens e **mp4** para vídeos.
 
-Quando as fotos chegarem: apague `public/media/` e coloque os arquivos
-com os mesmos caminhos que os markdowns e o `app/data/home.ts` referenciam.
-Nenhuma linha de código muda.
+| pasta | conteúdo |
+|---|---|
+| `projetos/<projeto>/` | `capa.webp`, `01.webp`, `02.webp`… (galeria) e, nos projetos com vídeo, `capa.mp4` |
+| `hero/` | `hero.mp4` + `hero-poster.webp` (vídeo da home) |
+| `servicos/` | uma imagem por serviço (caminhos em `app/data/home.ts`) |
+| `sobre/` | `carolina.webp` (foto da seção Sobre) |
+| `cta/` | `ambiente.webp` (fundo do bloco final) |
+| `og/` | `home.jpg` e `projetos.jpg` (preview de compartilhamento) |
 
-Imagens são otimizadas pelo `@nuxt/image` — sirva o arquivo grande e o
-Nuxt gera AVIF/WebP nos tamanhos certos automaticamente.
+As imagens de `og/` ficam em JPG de propósito: o preview de link do WhatsApp
+e do LinkedIn nem sempre lê webp.
+
+Para adicionar fotos novas, converta para webp (largura máxima 1800 px,
+qualidade 80 — uma foto de 5 MB vira ~150 KB) e solte na pasta do projeto:
+
+```bash
+node scripts/converter-para-webp.mjs ~/Downloads/fotos-novas public/media/projetos/nome-do-projeto
+```
+
+Depois é só apontar os arquivos no markdown do projeto. O `@nuxt/image` ainda
+gera AVIF/WebP nos tamanhos certos para cada tela, então pode servir o arquivo
+grande.
 
 ---
 
@@ -253,7 +277,8 @@ preview — útil para a cliente aprovar mudanças antes de ir ao ar.
 - [ ] E-mail, cidade e links de redes conferidos
 - [ ] Números da seção de estatísticas conferidos com a cliente
 - [ ] Depoimentos com autorização de uso
-- [ ] Fotos e vídeos reais no lugar dos placeholders
+- [x] Fotos e vídeos reais no lugar dos placeholders
+- [ ] Textos dos projetos sem doc da Carol (Studio Fit, Casa J | G, Refúgio Contemporâneo) revisados por ela
 - [ ] `alt` descritivo em todas as mídias (SEO e leitor de tela)
 - [ ] `NUXT_PUBLIC_SITE_URL` configurada na Vercel
 - [ ] `npm run build` passando

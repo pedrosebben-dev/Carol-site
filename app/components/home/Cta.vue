@@ -16,7 +16,7 @@ const clipStyle = computed(() => {
     <div class="relative overflow-hidden rounded-3xl">
       <div class="absolute inset-0 transition-[clip-path] duration-300" :style="clipStyle">
         <NuxtImg
-          src="/media/cta/ambiente.jpg"
+          src="/media/cta/ambiente.webp"
           alt=""
           sizes="xs:100vw sm:100vw md:100vw lg:100vw xl:100vw xxl:100vw"
           loading="lazy"
@@ -40,7 +40,7 @@ const clipStyle = computed(() => {
         </p>
 
         <div v-reveal="{ delay: 280 }" class="reveal flex flex-wrap justify-center gap-4">
-          <UiButton :href="whatsappLink()">
+          <UiButton :href="whatsappLink()" accent="whatsapp">
             Falar no WhatsApp
           </UiButton>
           <UiButton :href="`mailto:${site.email}`" variant="outline">

@@ -122,7 +122,7 @@ const counter = computed(() => String(props.index + 1).padStart(2, '0'))
       >
         <div class="flex flex-col gap-6 border-t border-bone/20 pt-6 lg:flex-row lg:items-end lg:justify-between">
           <dl class="grid grid-cols-2 gap-x-10 gap-y-5 sm:grid-cols-4">
-            <div class="flex flex-col gap-1.5">
+            <div v-if="project.location" class="flex flex-col gap-1.5">
               <dt class="eyebrow text-bone/45">
                 Local
               </dt>
@@ -130,7 +130,7 @@ const counter = computed(() => String(props.index + 1).padStart(2, '0'))
                 {{ project.location }}
               </dd>
             </div>
-            <div class="flex flex-col gap-1.5">
+            <div v-if="project.year" class="flex flex-col gap-1.5">
               <dt class="eyebrow text-bone/45">
                 Ano
               </dt>
@@ -138,7 +138,7 @@ const counter = computed(() => String(props.index + 1).padStart(2, '0'))
                 {{ project.year }}
               </dd>
             </div>
-            <div class="flex flex-col gap-1.5">
+            <div v-if="project.area" class="flex flex-col gap-1.5">
               <dt class="eyebrow text-bone/45">
                 Área
               </dt>

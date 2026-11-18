@@ -21,8 +21,8 @@ const imageStyle = computed(() => ({
         >
           <div class="absolute inset-0 will-change-transform" :style="imageStyle">
             <NuxtImg
-              src="/media/sobre/estudio.jpg"
-              alt="Mesa de trabalho do estúdio com amostras de tecido, madeira e pedra"
+              src="/media/sobre/carolina.webp"
+              alt="Carolina Dill, designer de interiores, sentada com um tablet no colo"
               sizes="sm:100vw lg:45vw"
               loading="lazy"
               class="h-full w-full object-cover"
